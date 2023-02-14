@@ -4,6 +4,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: Arial;
+    font-size: small;
 }
 .navbar ul{
     list-style: none;
@@ -47,3 +48,29 @@ main {
     font-size: large;
     
 }
+ /* .class {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ width: 100%;
+ font-size: small;
+ } */
+/* */ 
+/* #hh{
+    display: flex;  
+   
+}*/
+#employee{
+   position:absolute;
+   background-color: rgb(140, 131, 145);
+   border-radius: 20px;
+   box-shadow: 4 50px 80 px rgb(0, 0, 0);
+   width:fit-content;
+   height:fit-content;
+   text-align: center;
+   display: flex; 
+   font-size: small;
+
+}
+/* #hh{
+    text-align: center;
+} */
