@@ -47,13 +47,13 @@ for (let i = 0; i < depInfo.length; i++) {
 }
 
 function totalSalary(department) {
-    let sum=0;
+    let sum = 0;
     for (let i = 0; i < employeeArr.length; i++) {
         if (employeeArr[i].department == department) {
             sum += employeeArr[i].salary;
         }
-     }
-            return sum;
+    }
+    return sum;
 }
 
 function numOfEmp(department) {
@@ -63,6 +63,19 @@ function numOfEmp(department) {
             count++;
     }
     return count;
+}
+
+function totalNumberOfEmployees() {
+    for (let i = 0; i < employeeArr.length; i++) {
+    }
+    return employeeArr.length;
+}
+function totalSalaryForAllDepartments() {
+    let total = 0;
+    for (let i = 0; i < employeeArr.length; i++) {
+        total += employeeArr[i].salary;
+    }
+    return total;
 }
 
 console.log(depInfo);
@@ -90,11 +103,16 @@ function render() {
     trEl.appendChild(thEl4);
     thEl4.textContent = "Average ";
 
+    // const trEl2 = document.createElement('tr');
+    // tableEl.appendChild(trEl2);
+    const tf = document.createElement('tfoot');
+    tableEl.appendChild(tf);
+    tf.textContent = "Total:";
 
-for (let i = 0; i < depInfo.length; i++) {
+    for (let i = 0; i < depInfo.length; i++) {
 
-const trEl1 = document.createElement('tr');
-    tableEl.appendChild(trEl1);
+        const trEl1 = document.createElement('tr');
+        tableEl.appendChild(trEl1);
         //dep name
         const depName = document.createElement('td');
         trEl1.appendChild(depName);
@@ -102,24 +120,32 @@ const trEl1 = document.createElement('tr');
         // num emp
         const numEmp = document.createElement('td');
         trEl1.appendChild(numEmp);
-        numEmp.textContent =depInfo[i].numEmp;
+        numEmp.textContent = depInfo[i].numEmp;
         // total Salary
         const totalS = document.createElement('td');
         trEl1.appendChild(totalS);
-        totalS.textContent =depInfo[i].totalSalary;
+        totalS.textContent = depInfo[i].totalSalary;
         // avg
         const avg = document.createElement('td');
         trEl1.appendChild(avg);
-        avg.textContent =depInfo[i].avg;
-
-        }
-       
-   }
+        avg.textContent = depInfo[i].avg;
 
 
+    }
+    const totalNumberEmployees = document.createElement('td');
+    tf.appendChild(totalNumberEmployees);
+    totalNumberEmployees.textContent = totalNumberOfEmployees();
+
+    const totalSalaryForAll = document.createElement('td');
+    tf.appendChild(totalSalaryForAll);
+    totalSalaryForAll.textContent = totalSalaryForAllDepartments();
+
+    const averageSalaryforAll = document.createElement('td');
+    tf.appendChild(averageSalaryforAll);
+    averageSalaryforAll.textContent = totalSalaryForAllDepartments() / totalNumberOfEmployees();
 
 
-
+}
 
 render();
 
